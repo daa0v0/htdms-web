@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>皓天动漫社 - 组件集成示例</title>
+  
+  <!-- 字体图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- 预加载关键CSS -->
+  <link rel="preload" href="../css/main.css" as="style">
+  <link rel="preload" href="../css/image-loading.css" as="style">
+  
+  <!-- 主样式表 -->
+  <link rel="stylesheet" href="../css/main.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="../css/image-loading.css" media="print" onload="this.media='all'">
+</head>
+<body>
+  <!-- 导航栏组件 -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="main-nav" aria-label="主导航">
+        <!-- 网站Logo -->
+        <a href="index.html" class="nav-logo">
+          <img data-src="../picture/皓天.png" alt="皓天动漫社" width="120" height="120" class="lazy-load">
+        </a>
+        
+        <!-- 移动端菜单按钮 -->
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="切换菜单">
+          <span class="nav-toggle-icon"></span>
+          <span class="sr-only">菜单</span>
+        </button>
+        
+        <!-- 主菜单 -->
+        <div class="nav-menu-wrapper" id="main-menu">
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="#header" class="nav-link active" data-scroll>首页</a>
+            </li>
+            <li class="nav-item">
+              <a href="#info" class="nav-link" data-scroll>动漫社介绍</a>
+            </li>
+            <li class="nav-item has-dropdown">
+              <a href="#list" class="nav-link" data-scroll>部门列表</a>
+              <button class="dropdown-toggle" aria-expanded="false" aria-label="展开部门列表菜单">
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="ecb.html" class="dropdown-item">二创部</a></li>
+                <li><a href="hqb.html" class="dropdown-item">后勤部</a></li>
+                <li><a href="cos.html" class="dropdown-item">cos部</a></li>
+                <li><a href="yyb.html" class="dropdown-item">音游部</a></li>
+                <li><a href="zwb.html" class="dropdown-item">宅舞部</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#picture" class="nav-link" data-scroll>活动照片</a>
+            </li>
+            <li class="nav-item">
+              <a href="news.html" class="nav-link">社团公告</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- 导航栏右侧功能区 -->
+        <div class="nav-actions">
+          <button class="theme-toggle" aria-label="切换主题">
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="news.html#join" class="btn-nav">加入我们</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区 -->
+  <main class="main-content">
+    <!-- 轮播图组件 -->
+    <section id="header">
+      <div class="carousel" id="main-carousel">
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <!-- 预加载首屏轮播图 -->
+              <link rel="preload" href="../picture/1.jpg" as="image" media="(min-width: 768px)">
+              <link rel="preload" href="../picture/1.jpg" as="image" media="(max-width: 767px)">
+  
+              <!-- 轮播图图片 -->
+              <img data-src="../picture/1.jpg" alt="皓天动漫社活动照片1" class="carousel-image" width="1920" height="1080" loading="lazy" decoding="async">
+              <div class="carousel-caption">
+                <h2>欢迎来到皓天动漫社</h2>
+                <p>一个充满创意和激情的动漫爱好者社团</p>
+                <a href="#info" class="btn btn-primary" data-scroll>了解更多</a>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img data-src="../picture/2.jpg" alt="皓天动漫社活动照片2" class="carousel-image" width="1920" height="1080">
+              <div class="carousel-caption">
+                <h2>丰富多彩的社团活动</h2>
+                <p>Cosplay、绘画、宅舞、音游，总有一款适合你</p>
+                <a href="#list" class="btn btn-primary" data-scroll>查看部门</a>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img data-src="../picture/3.jpg" alt="皓天动漫社活动照片3" class="carousel-image" width="1920" height="1080">
+              <div class="carousel-caption">
+                <h2>加入我们的大家庭</h2>
+                <p>结交志同道合的朋友，一起享受动漫的乐趣</p>
+                <a href="news.html#join" class="btn btn-primary">立即加入</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 轮播图控制按钮 -->
+        <button class="carousel-prev" aria-label="上一张">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-next" aria-label="下一张">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <!-- 轮播图指示器 -->
+        <div class="carousel-indicators">
+          <button class="carousel-indicator active" aria-label="转到第1张幻灯片" aria-current="true"></button>
+          <button class="carousel-indicator" aria-label="转到第2张幻灯片"></button>
+          <button class="carousel-indicator" aria-label="转到第3张幻灯片"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 社团介绍部分 -->
+    <section id="info" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>动漫社介绍</h2>
+        </div>
+        <div class="section-subtitle">
+          皓天动漫社是一个充满活力和创意的社团，致力于为动漫爱好者提供交流和展示的平台。
+        </div>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <p>皓天动漫社成立于2010年，是校内最具影响力的文化社团之一。我们拥有多个专业部门，包括二创部、后勤部、cos部、音游部和宅舞部，每个部门都有自己的特色和活动。</p>
+            <p>我们定期举办各类活动，如动漫展、Cosplay表演、绘画比赛、动漫配音大赛等，为社员提供展示才华的舞台。同时，我们也与其他学校的动漫社团保持密切交流，共同举办跨校活动。</p>
+            <p>无论你是动漫新手还是资深爱好者，在皓天动漫社，你都能找到志同道合的朋友，一起分享对动漫的热爱。</p>
+            <a href="news.html#join" class="btn btn-primary mt-3">加入我们</a>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <img data-src="../picture/4.jpg" alt="社团活动照片" class="card-img lazy-load" width="800" height="450">
+              <div class="card-body">
+                <h3 class="card-title">我们的使命</h3>
+                <p class="card-text">传播动漫文化，培养创意思维，为动漫爱好者提供一个展示才华和交流的平台。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 部门列表部分 -->
+    <section id="list" class="section bg-light">
+      <div class="container">
+        <div class="section-title">
+          <h2>部门列表</h2>
+        </div>
+        <div class="section-subtitle">
+          我们的社团分为五个专业部门，每个部门都有自己的特色和活动。
+        </div>
+        
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img data-src="../picture/ecb.jpg" alt="二创部" class="card-img lazy-load" width="800" height="450">
+              <div class="card-body">
+                <h3 class="card-title">二创部</h3>
+                <p class="card-text">负责社团的绘画、设计等创作活动，定期举办绘画比赛和作品展示。</p>
+                <a href="ecb.html" class="btn btn-outline">了解更多</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img data-src="../picture/hqb.jpg" alt="后勤部" class="card-img lazy-load" width="800" height="450">
+              <div class="card-body">
+                <h3 class="card-title">后勤部</h3>
+                <p class="card-text">负责社团活动的组织、场地布置、物资管理等后勤工作。</p>
+                <a href="hqb.html" class="btn btn-outline">了解更多</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img data-src="../picture/cos.jpg" alt="cos部" class="card-img lazy-load" width="800" height="450">
+              <div class="card-body">
+                <h3 class="card-title">cos部</h3>
+                <p class="card-text">专注于Cosplay表演和摄影，定期举办Cosplay活动和比赛。</p>
+                <a href="cos.html" class="btn btn-outline">了解更多</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img data-src="../picture/yyb.jpg" alt="音游部" class="card-img lazy-load" width="800" height="450">
+              <div class="card-body">
+                <h3 class="card-title">音游部</h3>
+                <p class="card-text">专注于音乐游戏，定期举办音游比赛和交流活动。</p>
+                <a href="yyb.html" class="btn btn-outline">了解更多</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img data-src="../picture/zwb.jpg" alt="宅舞部" class="card-img lazy-load" width="800" height="450">
+              <div class="card-body">
+                <h3 class="card-title">宅舞部</h3>
+                <p class="card-text">专注于宅舞表演和教学，定期举办宅舞比赛和演出。</p>
+                <a href="zwb.html" class="btn btn-outline">了解更多</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 活动照片部分 -->
+    <section id="picture" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>活动照片</h2>
+        </div>
+        <div class="section-subtitle">
+          记录我们的精彩瞬间，分享社团活动的快乐时光。
+        </div>
+        
+        <div class="row">
+          <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card">
+              <img data-src="../picture/1.jpg" alt="活动照片1" class="card-img lazy-load" width="800" height="450" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card">
+              <img data-src="../picture/2.jpg" alt="活动照片2" class="card-img lazy-load" width="800" height="450" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card">
+              <img data-src="../picture/3.jpg" alt="活动照片3" class="card-img lazy-load" width="800" height="450" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card">
+              <img data-src="../picture/4.jpg" alt="活动照片4" class="card-img lazy-load" width="800" height="450">
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card">
+              <img data-src="../picture/5.jpg" alt="活动照片5" class="card-img lazy-load" width="800" height="450">
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card">
+              <img data-src="../picture/6.jpg" alt="活动照片6" class="card-img lazy-load" width="800" height="450">
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card">
+              <img data-src="../picture/7.jpg" alt="活动照片7" class="card-img lazy-load" width="800" height="450">
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card">
+              <img data-src="../picture/8.jpg" alt="活动照片8" class="card-img lazy-load" width="800" height="450">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚组件 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <!-- 社团信息 -->
+        <div class="footer-info">
+          <img data-src="../picture/皓天.png" alt="皓天动漫社" class="footer-logo lazy-load" width="200" height="60">
+          <p>皓天动漫社是一个充满活力和创意的社团，致力于为动漫爱好者提供交流和展示的平台。</p>
+          <div class="social-links">
+            <a href="#" aria-label="微信" class="social-link">
+              <i class="fab fa-weixin"></i>
+            </a>
+            <a href="#" aria-label="QQ" class="social-link">
+              <i class="fab fa-qq"></i>
+            </a>
+            <a href="#" aria-label="微博" class="social-link">
+              <i class="fab fa-weibo"></i>
+            </a>
+            <a href="#" aria-label="哔哩哔哩" class="social-link">
+              <i class="fab fa-bilibili"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- 快速链接 -->
+        <div class="footer-links">
+          <h3>快速链接</h3>
+          <ul>
+            <li><a href="#header">首页</a></li>
+            <li><a href="#info">动漫社介绍</a></li>
+            <li><a href="#list">部门列表</a></li>
+            <li><a href="#picture">活动照片</a></li>
+            <li><a href="news.html">社团公告</a></li>
+          </ul>
+        </div>
+        
+        <!-- 部门链接 -->
+        <div class="footer-links">
+          <h3>部门链接</h3>
+          <ul>
+            <li><a href="ecb.html">二创部</a></li>
+            <li><a href="hqb.html">后勤部</a></li>
+            <li><a href="cos.html">cos部</a></li>
+            <li><a href="yyb.html">音游部</a></li>
+            <li><a href="zwb.html">宅舞部</a></li>
+          </ul>
+        </div>
+        
+        <!-- 联系我们 -->
+        <div class="footer-contact">
+          <h3>联系我们</h3>
+          <p><i class="fas fa-map-marker-alt"></i> 地址：某某大学某某楼</p>
+          <p><i class="fas fa-phone"></i> 电话：123-456-7890</p>
+          <p><i class="fas fa-envelope"></i> 邮箱：haotian@example.com</p>
+          <p><i class="fas fa-clock"></i> 活动时间：每周六 14:00-17:00</p>
+        </div>
+      </div>
+      
+      <!-- 版权信息 -->
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2023</span> 皓天动漫社 版权所有</p>
+        <p>由<a href="#">皓天动漫社技术部</a>设计开发</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 预加载关键JS -->
+  <link rel="preload" href="../js/image-optimizer.js" as="script">
+  <link rel="preload" href="../js/navbar.js" as="script">
+  
+  <!-- 延迟加载非关键JS -->
+  <script src="../js/image-optimizer.js" defer></script>
+  <script src="../js/navbar.js" defer></script>
+  <script src="../js/carousel.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  
+  <!-- 内联关键JS -->
+  <script>
+    // 关键初始化代码
+    document.addEventListener('DOMContentLoaded', function() {
+      // 自动更新年份
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+      
+      // 主题切换初始化
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    });
+  </script>
+</body>
+</html>

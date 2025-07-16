@@ -1,0 +1,284 @@
+/* 
+ * 皓天动漫社 - 导航栏样式
+ * 创建于：2023年
+ * 描述：响应式导航栏样式，使用CSS变量实现主题一致性
+ */
+
+/* 导入CSS变量 */
+@import 'variables.css';
+
+/* 导航栏基础样式 */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color var(--transition-normal);
+}
+
+.main-nav {
+  background-color: var(--navbar-bg-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.main-nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo样式 */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--white-color);
+  font-weight: bold;
+  font-size: var(--font-size-lg);
+}
+
+.nav-logo img {
+  margin-right: var(--spacing-sm);
+  height: 40px;
+  width: auto;
+}
+
+.nav-logo span {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav-logo span {
+    display: inline;
+  }
+}
+
+/* 导航菜单样式 */
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+  margin: 0 var(--spacing-sm);
+}
+
+.nav-link {
+  display: block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--light-text-color);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--white-color);
+}
+
+/* 下拉菜单样式 */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.nav-dropdown-toggle::after {
+  content: '';
+  display: inline-block;
+  margin-left: var(--spacing-xs);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--light-text-color);
+  transition: transform var(--transition-fast);
+}
+
+.nav-dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-sm) 0;
+  margin-top: var(--spacing-xs);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all var(--transition-normal);
+  z-index: 1001;
+  list-style: none;
+}
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu,
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--light-bg-color);
+  color: var(--primary-color);
+}
+
+/* 移动端菜单按钮 */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+}
+
+.nav-toggle-icon,
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--white-color);
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle-icon::before {
+  top: -8px;
+}
+
+.nav-toggle-icon::after {
+  top: 8px;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon {
+  background-color: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* 响应式样式 */
+@media (max-width: 991px) {
+  .nav-toggle {
+    display: block;
+    z-index: 1002;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 280px;
+    background-color: var(--navbar-bg-color);
+    padding: 80px var(--spacing-lg) var(--spacing-lg);
+    transform: translateX(100%);
+    transition: transform var(--transition-normal);
+    overflow-y: auto;
+    z-index: 1001;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .nav-menu.show {
+    transform: translateX(0);
+  }
+  
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .nav-item {
+    margin: var(--spacing-xs) 0;
+    width: 100%;
+  }
+  
+  .nav-link {
+    padding: var(--spacing-md) 0;
+  }
+  
+  .dropdown-menu {
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+    padding-left: var(--spacing-lg);
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+  }
+  
+  .dropdown-menu.show {
+    display: block;
+  }
+  
+  .dropdown-item {
+    color: var(--light-text-color);
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    background-color: transparent;
+    color: var(--white-color);
+  }
+  
+  .nav-dropdown-toggle::after {
+    margin-left: auto;
+  }
+}
+
+/* 滚动时导航栏样式变化 */
+.site-header.scrolled .main-nav {
+  background-color: rgba(0, 0, 0, 0.95);
+  box-shadow: var(--shadow-md);
+}

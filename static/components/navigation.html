@@ -1,0 +1,49 @@
+<!-- 
+  皓天动漫社 - 导航栏组件
+  创建于：2023年
+  描述：响应式导航栏，使用原生JavaScript实现交互功能
+-->
+<header class="site-header">
+  <nav class="main-nav">
+    <div class="container">
+      <!-- 网站Logo -->
+      <a href="index.html" class="nav-logo">
+        <img src="static/picture/皓天.png" alt="皓天动漫社" width="40" height="40">
+        <span>皓天动漫社</span>
+      </a>
+
+      <!-- 移动端菜单按钮 -->
+      <button class="nav-toggle" aria-label="切换菜单" aria-expanded="false" aria-controls="main-menu">
+        <span class="nav-toggle-icon"></span>
+      </button>
+
+      <!-- 导航菜单 -->
+      <div class="nav-menu" id="main-menu">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html#header" class="nav-link">首页</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#info" class="nav-link">动漫社介绍</a>
+          </li>
+          <li class="nav-item nav-dropdown">
+            <a href="index.html#list" class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">部门列表</a>
+            <ul class="dropdown-menu">
+              <li><a href="ecb.html" class="dropdown-item">二创部</a></li>
+              <li><a href="hqb.html" class="dropdown-item">后勤部</a></li>
+              <li><a href="cos.html" class="dropdown-item">COS部</a></li>
+              <li><a href="yyb.html" class="dropdown-item">音游部</a></li>
+              <li><a href="zwb.html" class="dropdown-item">宅舞部</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#picture" class="nav-link">活动照片</a>
+          </li>
+          <li class="nav-item">
+            <a href="news.html" class="nav-link">社团公告</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

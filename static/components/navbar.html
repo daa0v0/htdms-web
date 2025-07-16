@@ -1,0 +1,60 @@
+<!-- 
+  皓天动漫社 - 导航栏组件
+  创建于：2023年
+  描述：响应式导航栏，使用原生JavaScript实现，支持移动端汉堡菜单和下拉菜单
+-->
+<header class="site-header">
+  <div class="container">
+    <nav class="main-nav" aria-label="主导航">
+      <!-- 网站Logo -->
+      <a href="index.html" class="nav-logo">
+        <img src="static/picture/皓天.png" alt="皓天动漫社" width="120">
+      </a>
+      
+      <!-- 移动端菜单按钮 -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="切换菜单">
+        <span class="nav-toggle-icon"></span>
+        <span class="sr-only">菜单</span>
+      </button>
+      
+      <!-- 主菜单 -->
+      <div class="nav-menu-wrapper" id="main-menu">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#header" class="nav-link active" data-scroll>首页</a>
+          </li>
+          <li class="nav-item">
+            <a href="#info" class="nav-link" data-scroll>动漫社介绍</a>
+          </li>
+          <li class="nav-item has-dropdown">
+            <a href="#list" class="nav-link" data-scroll>部门列表</a>
+            <button class="dropdown-toggle" aria-expanded="false" aria-label="展开部门列表菜单">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="ecb.html" class="dropdown-item">二创部</a></li>
+              <li><a href="hqb.html" class="dropdown-item">后勤部</a></li>
+              <li><a href="cos.html" class="dropdown-item">cos部</a></li>
+              <li><a href="yyb.html" class="dropdown-item">音游部</a></li>
+              <li><a href="zwb.html" class="dropdown-item">宅舞部</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#picture" class="nav-link" data-scroll>活动照片</a>
+          </li>
+          <li class="nav-item">
+            <a href="news.html" class="nav-link">社团公告</a>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- 导航栏右侧功能区 -->
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="切换主题">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="news.html#join" class="btn-nav">加入我们</a>
+      </div>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,212 @@
+/* 
+ * 皓天动漫社 - 页脚样式
+ * 创建于：2023年
+ * 描述：响应式页脚组件样式
+ */
+
+/* 页脚容器 */
+.site-footer {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color);
+  padding: var(--spacing-xl) 0 var(--spacing-md);
+  margin-top: var(--spacing-2xl);
+  border-top: 1px solid var(--border-color);
+}
+
+/* 页脚内容 */
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* 页脚信息区 */
+.footer-info {
+  grid-column: span 1;
+}
+
+.footer-logo {
+  max-width: 120px;
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-info p {
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+/* 社交链接 */
+.social-links {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-radius: 50%;
+  transition: all var(--transition-fast);
+}
+
+.social-link:hover,
+.social-link:focus {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  transform: translateY(-3px);
+}
+
+/* 页脚链接区 */
+.footer-links {
+  grid-column: span 1;
+}
+
+.footer-links h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  padding-bottom: var(--spacing-xs);
+}
+
+.footer-links h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  display: inline-block;
+}
+
+.footer-links a:hover,
+.footer-links a:focus {
+  color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+/* 页脚联系区 */
+.footer-contact {
+  grid-column: span 1;
+}
+
+.footer-contact h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  padding-bottom: var(--spacing-xs);
+}
+
+.footer-contact h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.footer-contact p {
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+}
+
+.footer-contact i {
+  margin-right: var(--spacing-sm);
+  color: var(--primary-color);
+  width: 16px;
+  text-align: center;
+}
+
+/* 页脚底部 */
+.footer-bottom {
+  text-align: center;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+  font-size: var(--font-size-sm);
+}
+
+.footer-bottom p {
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer-bottom a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.footer-bottom a:hover,
+.footer-bottom a:focus {
+  text-decoration: underline;
+}
+
+/* 响应式样式 */
+@media (max-width: 992px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-info {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-info,
+  .footer-links,
+  .footer-contact {
+    grid-column: span 1;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .footer-links h3,
+  .footer-contact h3 {
+    text-align: center;
+  }
+  
+  .footer-links h3::after,
+  .footer-contact h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .footer-links ul {
+    text-align: center;
+  }
+  
+  .footer-contact p {
+    justify-content: center;
+  }
+}
