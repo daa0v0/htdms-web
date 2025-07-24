@@ -11,26 +11,31 @@ static/
 │   ├── main.css       - 主样式文件
 │   ├── navbar.css     - 导航栏样式
 │   ├── carousel.css   - 轮播图样式
-│   └── footer.css     - 页脚样式
+│   ├── footer.css     - 页脚样式
+│   └── theme.css      - 主题切换样式
 ├── js/
 │   ├── navbar.js      - 导航栏脚本
 │   ├── carousel.js    - 轮播图脚本
+│   ├── theme.js       - 主题切换脚本
 │   └── main.js        - 主脚本文件
 ├── examples/
 │   └── integrated-page.html - 集成示例页面
-└── picture/           - 图片资源目录
+└── assets/           - 静态资源目录
+    ├── images/       - 图片资源
+    └── fonts/        - 字体文件
 ```
 
 ## 特性
 
 - 响应式设计，适配各种屏幕尺寸
-- 深色/浅色主题切换
+- 深色/浅色主题切换（支持系统偏好设置）
 - 现代化的导航栏，支持移动端菜单
-- 功能丰富的轮播图组件
+- 功能丰富的轮播图组件（支持触摸滑动）
 - 美观的页脚设计
 - 基于CSS变量的主题系统
 - 纯原生JavaScript实现，无需外部依赖
 - 丰富的工具类，便于快速开发
+- 优化的性能（懒加载、代码分割）
 
 ## 使用方法
 
@@ -39,7 +44,7 @@ static/
 1. 在HTML文件的`<head>`中引入样式文件：
 
 ```html
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="static/css/main.css">
 ```
 
@@ -48,6 +53,7 @@ static/
 ```html
 <script src="static/js/navbar.js"></script>
 <script src="static/js/carousel.js"></script>
+<script src="static/js/theme.js"></script>
 <script src="static/js/main.js"></script>
 ```
 
@@ -59,7 +65,7 @@ static/
     <nav class="main-nav" aria-label="主导航">
       <!-- 网站Logo -->
       <a href="index.html" class="nav-logo">
-        <img src="static/picture/皓天.png" alt="皓天动漫社" width="120">
+        <img src="static/assets/images/皓天.png" alt="皓天动漫社" width="120">
       </a>
       
       <!-- 移动端菜单按钮 -->
@@ -97,7 +103,7 @@ static/
   <div class="carousel-container">
     <div class="carousel-track">
       <div class="carousel-slide">
-        <img src="static/picture/1.jpg" alt="轮播图1" class="carousel-image">
+        <img src="static/assets/images/1.jpg" alt="轮播图1" class="carousel-image" loading="lazy">
         <div class="carousel-caption">
           <h2>标题文本</h2>
           <p>描述文本</p>
@@ -132,7 +138,7 @@ static/
     <div class="footer-content">
       <!-- 社团信息 -->
       <div class="footer-info">
-        <img src="static/picture/皓天.png" alt="皓天动漫社" class="footer-logo">
+        <img src="static/assets/images/皓天.png" alt="皓天动漫社" class="footer-logo">
         <p>描述文本</p>
         <div class="social-links">
           <!-- 社交媒体链接 -->
@@ -152,7 +158,7 @@ static/
     
     <!-- 版权信息 -->
     <div class="footer-bottom">
-      <p>&copy; <span id="current-year">2023</span> 皓天动漫社 版权所有</p>
+      <p>&copy; <span id="current-year">2024</span> 皓天动漫社 版权所有</p>
     </div>
   </div>
 </footer>
@@ -164,11 +170,12 @@ static/
 
 ## 浏览器兼容性
 
-- Chrome (最新版)
-- Firefox (最新版)
-- Safari (最新版)
-- Edge (最新版)
-- Opera (最新版)
+- Chrome (最新版及前两个版本)
+- Firefox (最新版及前两个版本)
+- Safari (最新版及前两个版本)
+- Edge (最新版及前两个版本)
+- Opera (最新版及前两个版本)
+- 移动端：iOS Safari 15+, Android Chrome 100+
 
 ## 示例
 
@@ -176,4 +183,4 @@ static/
 
 ## 许可证
 
-版权所有 © 2023 皓天动漫社
+版权所有 © 2024 皓天动漫社
