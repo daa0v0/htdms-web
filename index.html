@@ -20,6 +20,58 @@
     
     <!-- 背景音乐控制按钮样式 -->
     <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .modal-content {
+            margin: 5% auto;
+            width: 60%;
+            max-width: 500px;
+            position: relative;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .close {
+            color: #333;
+            position: absolute;
+            right: 25px;
+            top: 25px;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            background: rgba(255,255,255,0.8);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 2px solid #333;
+        }
+        .hidden-category {
+            display: none;
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+        /* 默认隐藏除第一张外的图片 */
+        .picture-container .picture-item:not(:first-child) {
+            display: none;
+        }
+        .picture-container.show-all .picture-item {
+            display: block;
+        }
         #music-control {
             position: fixed;
             bottom: 20px;
@@ -298,6 +350,17 @@
                         <a class="dropdown-item" href="ecb.html"><span class="item-text">二创部</span></a>
                         <div class="dropdown-items-divide-hr"></div>
                         <a class="dropdown-item" href="hqb.html"><span class="item-text">后勤部</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle page-scroll" href="#interest" id="navbarDropdown2" role="button" aria-haspopup="true" aria-expanded="false">兴趣小组</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                        <a class="dropdown-item" href="#fmcg"><span class="item-text">皓天FMCG模型兴趣小组</span></a>
+                        <div class="dropdown-items-divide-hr"></div>
+                        <a class="dropdown-item" href="#stage"><span class="item-text">舞台剧兴趣小组</span></a>
+                        <div class="dropdown-items-divide-hr"></div>
+                        <a class="dropdown-item" href="#ogg"><span class="item-text">皓天ogg游戏兴趣小组</span></a>
+                        <div class="dropdown-items-divide-hr"></div>
+                        <a class="dropdown-item" href="#wota"><span class="item-text">wota艺兴趣小组</span></a>
                         <div class="dropdown-items-divide-hr"></div>
                         <a class="dropdown-item" href="cos.html"><span class="item-text">cos部</span></a>
                         <div class="dropdown-items-divide-hr"></div>
@@ -309,6 +372,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="#picture">活动照片</a>
+                    <a class="nav-link daily-image-btn" href="#">每日一图</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="news.html">社团公告</a>
@@ -447,6 +511,78 @@
                         <div class="button-container">
                             <a class="btn-solid-reg page-scroll" href="zwb.html" onclick="showRecruitmentAlert()" target="_blank">点击加群</a>
                         </div> <!-- end of button-container -->
+                    </div>
+                    <!-- end of card -->
+
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of cards-2 -->
+    <!-- end of services -->
+
+    <!-- Services -->
+    <div id="list" class="cards-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>部门列表<br> 多个部门提供选择</h2>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="img-fluid" src="static/picture/fmcg/fmcg.jpg" alt="alternative">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">皓天FMCG模型兴趣小组</h3>
+                            <p>皓天FMCG模型兴趣小组是上海中侨职业技术大学皓天动漫社的模型文化兴趣小组，由一群热爱拼装、涂装、收藏各类模型（高达、军模、手办等）的社员组成。</p>
+                            <p class="price"><a style="color:#484a46" href="fmcg.html">详情</a></p>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="img-fluid" src="static/picture/hqb/hqbtb.png" alt="alternative">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">舞台剧兴趣小组</h3>
+                            <p>本部门为皓天动漫社的基础部门，所有人都可以做后勤工作，所有愿意为了为社团贡献自己力量的小伙伴都可以参加。希望大家在进入后勤部之后，愿意吃苦，愿意为社团贡献自己的力量，在社团中留下自己的痕迹。</p>
+                            <p class="price"><a style="color:#484a46" href="stage.html">详情</a></p>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="img-fluid" src="static/picture/o" alt="alternative">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">皓天ogg游戏兴趣小组</h3>
+                            <p>皓天 ogg 游戏兴趣小组，是游戏爱好者的集结地。无论你偏爱竞技对战、剧情单机还是休闲手游，这里都有你的一席之地！</p>
+                            <p class="price"><a style="color:#484a46" href="ogg.html">详情</a></p>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="img-fluid" src="static/picture/wota/wota.png" alt="alternative">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">wota艺兴趣小组</h3>
+                            <p>想要成为光棒领域大神吗，我们有最权威（划掉）的高手进行教学
+                                学习wota不仅能更好的打call，还能强身健体
+                                如果想要在live现场大放光彩的话，就来加入我们吧</p>
+                            <p class="price"><a style="color:#484a46" href="yyb.html">详情</a></p>
+                        </div>
                     </div>
                     <!-- end of card -->
 
@@ -795,5 +931,54 @@ function showRecruitmentAlert() {
     alert("想加入这个部门？先加招新群喽~但是也得在招新时间哦~嘻嘻~");
 }
 </script>
+<script>
+        document.querySelector('.show-all-btn').addEventListener('click', function() {
+            document.querySelector('.picture-container').classList.toggle('show-all');
+        });
+    </script>
+<script>
+        document.querySelector('.show-all-btn').addEventListener('click', function() {
+            const hiddenCategory = document.querySelector('.hidden-category');
+            hiddenCategory.style.display = hiddenCategory.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
+<div id="daily-image-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="daily-image" src="" alt="社娘二创每日一图">
+        </div>
+    </div>
+<script>
+        const modal = document.getElementById('daily-image-modal');
+        const dailyImage = document.getElementById('daily-image');
+        const closeBtn = document.querySelector('.close');
+        
+        // 自动获取图片目录下的所有图片
+        function loadImages() {
+            return [
+                'static/picture/zs/sn/1.png',
+                'static/picture/zs/sn/2.png',
+                'static/picture/zs/sn/3.png',
+                'static/picture/zs/sn/4.png',
+                'static/picture/zs/sn/5.gif',
+                'static/picture/zs/sn/6.jpg'
+            ];
+        }
+        
+        document.querySelector('.daily-image-btn').addEventListener('click', async function() {
+            const images = await loadImages();
+            if (images.length > 0) {
+                const randomImage = images[Math.floor(Math.random() * images.length)];
+                dailyImage.src = randomImage;
+                modal.style.display = 'block';
+            } else {
+                alert('未找到社娘二创图片，请检查图片目录');
+            }
+        });
+        
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+    </script>
 </body>
 </html>

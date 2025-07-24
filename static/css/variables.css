@@ -1,150 +1,34 @@
-/* 
- * 皓天动漫社 - CSS变量
- * 创建于：2023年
- * 描述：全局CSS变量，用于保持网站样式的一致性和支持主题切换
- */
-
 :root {
-  /* 主题颜色 */
-  --primary-color: #ff6b6b;
-  --primary-color-light: #ff9e9e;
-  --primary-color-dark: #e05252;
-  --secondary-color: #4ecdc4;
-  --secondary-color-light: #7edbd5;
-  --secondary-color-dark: #3aa39b;
-  --accent-color: #ffe66d;
+  /* Colors */
+  --color-primary: #ff80ab;
+  --color-secondary: #00bcd4;
+  --color-dark: #153e52;
+  --color-text: #484a46;
+  --color-text-light: #787976;
+  --color-text-lighter: #dfe5ec;
+  --color-bg: #fbfbfb;
+  --color-border: #dadada;
   
-  /* 文本颜色 */
-  --text-color: #333333;
-  --text-color-light: #666666;
-  --text-color-lighter: #999999;
-  --text-color-inverse: #ffffff;
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
   
-  /* 背景颜色 */
-  --bg-color: #ffffff;
-  --bg-color-alt: #f8f9fa;
-  --bg-color-dark: #e9ecef;
+  /* Fonts */
+  --font-main: "Open Sans", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.125rem;
   
-  /* 边框颜色 */
-  --border-color: #dee2e6;
-  --border-color-dark: #ced4da;
+  /* Transitions */
+  --transition-fast: 0.2s;
+  --transition-normal: 0.3s;
   
-  /* 状态颜色 */
-  --success-color: #28a745;
-  --info-color: #17a2b8;
-  --warning-color: #ffc107;
-  --danger-color: #dc3545;
-  
-  /* 通用颜色 */
-  --white-color: #ffffff;
-  --black-color: #000000;
-  --gray-100: #f8f9fa;
-  --gray-200: #e9ecef;
-  --gray-300: #dee2e6;
-  --gray-400: #ced4da;
-  --gray-500: #adb5bd;
-  --gray-600: #6c757d;
-  --gray-700: #495057;
-  --gray-800: #343a40;
-  --gray-900: #212529;
-  
-  /* 字体 */
-  --font-family-base: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
-  --font-family-heading: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
-  --font-family-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-  
-  /* 字体大小 */
-  --font-size-xs: 0.75rem;   /* 12px */
-  --font-size-sm: 0.875rem;  /* 14px */
-  --font-size-md: 1rem;      /* 16px */
-  --font-size-lg: 1.125rem;  /* 18px */
-  --font-size-xl: 1.25rem;   /* 20px */
-  --font-size-2xl: 1.5rem;   /* 24px */
-  --font-size-3xl: 1.875rem; /* 30px */
-  --font-size-4xl: 2.25rem;  /* 36px */
-  --font-size-5xl: 3rem;     /* 48px */
-  
-  /* 行高 */
-  --line-height-tight: 1.25;
-  --line-height-normal: 1.5;
-  --line-height-loose: 1.75;
-  
-  /* 间距 */
-  --spacing-xs: 0.25rem;  /* 4px */
-  --spacing-sm: 0.5rem;   /* 8px */
-  --spacing-md: 1rem;     /* 16px */
-  --spacing-lg: 1.5rem;   /* 24px */
-  --spacing-xl: 2rem;     /* 32px */
-  --spacing-2xl: 3rem;    /* 48px */
-  --spacing-3xl: 4rem;    /* 64px */
-  
-  /* 边框 */
-  --border-width: 1px;
-  --border-width-thick: 2px;
-  --border-radius: 0.25rem;
-  --border-radius-lg: 0.5rem;
-  --border-radius-pill: 9999px;
-  
-  /* 阴影 */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  
-  /* 过渡 */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
-  --transition-slow: 0.5s ease;
-  
-  /* 容器 */
-  --container-max-width: 1200px;
-  --container-padding: 1rem;
-  
-  /* Z-index层级 */
-  --z-index-dropdown: 1000;
-  --z-index-sticky: 1020;
-  --z-index-fixed: 1030;
-  --z-index-modal-backdrop: 1040;
-  --z-index-modal: 1050;
-  --z-index-popover: 1060;
-  --z-index-tooltip: 1070;
+  /* Z-index */
+  --z-index-low: 10;
+  --z-index-medium: 100;
+  --z-index-high: 1000;
 }
-
-/* 深色主题 */
-[data-theme="dark"] {
-  /* 主题颜色 */
-  --primary-color: #ff6b6b;
-  --primary-color-light: #ff9e9e;
-  --primary-color-dark: #e05252;
-  
-  /* 文本颜色 */
-  --text-color: #e1e1e1;
-  --text-color-light: #b0b0b0;
-  --text-color-lighter: #888888;
-  --text-color-inverse: #333333;
-  
-  /* 背景颜色 */
-  --bg-color: #121212;
-  --bg-color-alt: #1e1e1e;
-  --bg-color-dark: #2d2d2d;
-  
-  /* 边框颜色 */
-  --border-color: #333333;
-  --border-color-dark: #444444;
-  
-  /* 阴影 */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-}
-
-/* 媒体查询断点 */
-/* 这些不是CSS变量，但在这里定义为注释，方便参考 */
-/*
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-*/
