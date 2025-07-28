@@ -134,8 +134,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // 加载指定索引的音乐
-    function loadMusic(index) {
+    // 异步加载指定索引的音乐
+    async function loadMusic(index) {
         if (musicFiles.length === 0) {
             currentSongTitle.textContent = '没有可播放的音乐';
             return;
@@ -150,9 +150,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         console.log('加载音乐:', music.title, music.path);
         
-        // 更新音频源
-        backgroundMusic.src = music.path;
-        backgroundMusic.load();
+        // 使用Promise异步加载音频
+        await new Promise((resolve) => {
+            backgroundMusic.src = music.path;
+            backgroundMusic.load();
+            backgroundMusic.oncanplaythrough = resolve;
+        });
         
         // 更新当前播放歌曲标题
         currentSongTitle.textContent = music.title;
